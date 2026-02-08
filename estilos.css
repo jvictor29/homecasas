@@ -205,6 +205,9 @@ body {
     padding: var(--space-4xl) 0;
 }
 
+
+
+
 /* Modern Button Styles */
 .btn {
     display: inline-flex;
@@ -223,6 +226,41 @@ body {
     font-size: var(--font-size-base);
     letter-spacing: 0.01em;
 }
+
+.btn-whatsapp-grupo {
+    
+    bottom: 110px;
+    right: 20px;
+    padding: 8px 16px;
+    background-color: #188841; /* Cor verde do WhatsApp */
+    color: #fff;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    z-index: 1002; /* Above other elements */
+    transition: background-color 0.22s ease, transform 0.22s ease;
+}
+
+.btn-whatsapp-grupo:hover {
+    background-color: #1ebe57; /* Verde mais escuro no hover */
+    transform: scale(1.05); /* Pequeno aumento no hover */
+}
+
+.btn-whatsapp-grupo img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+
+
+
+
 
 .btn::before {
     content: '';
@@ -642,6 +680,40 @@ body {
     color: white;
     max-width: 1000px;
     padding: var(--space-xl);
+}
+
+/* Specific responsive layout for grupoimoveis page */
+.group-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.group-hero-grid .hero-text {
+    text-align: left;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 992px) {
+    .group-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .group-hero-grid .hero-text {
+        text-align: center;
+    }
+    .group-hero-grid img {
+        max-width: 320px;
+        margin: 0 auto;
+    }
 }
 
 .hero-title {
@@ -1562,10 +1634,12 @@ body {
 }
 
 .footer-logo {
-    text-align: center;
-    margin-top: -150px;
+    text-align: left;
+    margin-left: 340px;
+    margin-top: -70px;
     margin-bottom: 2rem;
     position: relative;
+    animation: alternate-pulse 3s ease-in-out infinite;
     z-index: 2;
 }
 
@@ -2245,5 +2319,62 @@ body {
     
     .benefits-card {
         padding: var(--space-sm);
+    }
+}
+
+/* ==================== FORCE MOBILE VIEW (utility for testing) ==================== */
+/* Add class `mobile-view` to <body> to force mobile layout regardless of viewport width */
+.mobile-view .nav-menu { display: none !important; }
+.mobile-view .mobile-menu-btn { display: flex !important; }
+.mobile-view .mobile-menu { display: flex !important; flex-direction: column; gap: var(--space-lg); position: fixed; top: 80px; right: 20px; width: calc(100% - 40px); left: 20px; z-index: 1000; }
+.mobile-view .hero-content { padding: var(--space-lg); }
+.mobile-view .container { padding: 0 var(--space-md); }
+.mobile-view .footer-content { grid-template-columns: 1fr !important; text-align: center; }
+.mobile-view .footer-logo { margin-left: 0 !important; margin-top: 0 !important; }
+.mobile-view .whatsapp-float { right: 20px; bottom: 20px; }
+.mobile-view .contact-grid,
+.mobile-view .about-grid,
+.mobile-view .services-grid,
+.mobile-view .testimonials-grid { grid-template-columns: 1fr !important; gap: var(--space-2xl) !important; }
+.mobile-view .form-row { grid-template-columns: 1fr !important; }
+.mobile-view .service-card, .mobile-view .testimonial-card, .mobile-view .contact-form-card { padding: var(--space-lg) !important; }
+
+
+/* ================= HERO MOBILE FIX ================= */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .hero-content {
+        padding: var(--space-lg);
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+.footer-logo-img {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .footer-logo {
+        text-align: center;
+    }
+
+    .footer-logo-img {
+        width: 140px;
     }
 }

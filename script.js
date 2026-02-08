@@ -302,6 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     });
     
+    
     // Keyboard navigation
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
